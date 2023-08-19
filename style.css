@@ -2,15 +2,15 @@
 
     /* Primary Colors */
 
-    --clr-primary-red: hsl(0, 78%, 62%);
-    --clr-primary-cyan: hsl(180, 62%, 55%);
-    --clr-primary-orange: hsl(34, 97%, 64%);
-    --clr-primary-blue: hsl(212, 86%, 64%);
+    --clr-hsl-red: 0, 78%, 62%;
+    --clr-hsl-cyan: 180, 62%, 55%;
+    --clr-hsl-orange: 34, 97%, 64%;
+    --clr-hsl-blue: 212, 86%, 64%;
     --clr-pramiry-white: hsl(0, 0%, 100%);
 
 
     /* Secondary Colors */
-    --clrHsla-secondary-dark-blue: 234, 12%, 34%;
+    --clr-hsla-dark-blue: 234, 12%, 34%;
     /*card P*/
     --clr-secondary-blue: hsl(229, 6%, 66%);
     --clr-secondary-light-gray: hsl(0, 0%, 98%);
@@ -31,7 +31,8 @@
 
     /* Others */
     --brd-radius: 0.5rem;
-
+    --max-width-desktop: 69.375rem;
+    /* 1110px */
 
     --spacing-xxs: 0.25rem;
     --spacing-xs: 0.5rem;
@@ -49,36 +50,7 @@
     --grid-gap-responsive: 1.5625rem;
     --cards-padding-responsive: 1.75rem;
     --card-gap-responsive: 2rem;
-
-    /* Desktop - based on design */
-    /* Tiitle-light: fs 2.25rem 36px, fw 200 */
-    /* Tittle-heavy: fs 36px,  fw 600*/
-    /* card top border 0.25rem 4px */
-    /* subtitle to top card 4rem 64px */
-    /* grid-gap: 1.875rem 30px */
-    /* body padding left-right 10.3125rem 165px*/
-    /* card padding 2rem 32px */
-    /* max-width 69.375rem 1110px */
-
-    /* [-- OK --] Subtittle: fs 15px, fw 400 */
-    /* [-- OK --] card tittle: fs 1.25rem 20px, fw 600 */
-    /* [-- OK --] card p fs 0.8125 13px, fw 400 */
-    /* [-- OK --] card-brd-radius 0.5rem 8px */
-
-
-    /* Mobile */
-    /* Tiitle-light: fs 1.5rem 24px, fw 200 */
-    /* Tittle-heavy: fs 1.5rem 24px,  fw 600*/
-    /* card top border 0.2188rem 3.5px */
-    /* subtitle to top card 4.75rem 76px */
-    /* grid-gap: 1.5625rem 25px */
-    /* body padding left/right 32px*/
-    /* card padding 1.75rem 28px */
-
-    /* [-- OK --]  Subtittle: fs 15px, fw 400 */
-    /* [-- OK --]  card tittle: fs 1.25rem 20px, fw 600 */
-    /* [-- OK --]  card p fs 13px, fw 400 */
-    /* [-- OK --]  card-brd-radius 8px */
+    --card-width-responsive: 22rem;
 
 }
 
@@ -97,55 +69,77 @@ body {
 }
 
 /* Utility Styles */
-/* .brd-red {
-    border-top: var(--card-brd-responsive) solid var(--clr-primary-red);
-} */
 
 .brd-red {
     position: relative;
-    --clr-brd: var(--clr-primary-red);
+    --clr-brd: var(--clr-hsl-red);
 }
 
 .brd-cyan {
     position: relative;
-    --clr-brd: var(--clr-primary-cyan);
+    --clr-brd: var(--clr-hsl-cyan);
 }
 
 .brd-orange {
     position: relative;
-    --clr-brd: var(--clr-primary-orange);
+    --clr-brd: var(--clr-hsl-orange);
 }
 
 .brd-blue {
     position: relative;
-    --clr-brd: var(--clr-primary-blue);
+    --clr-brd: var(--clr-hsl-blue);
 }
 
 :is(.brd-red, .brd-cyan, .brd-orange, .brd-blue)::before {
     content: '';
     position: absolute;
-    border-top: var(--card-brd-responsive) solid var(--clr-brd);
+    border-top: var(--card-brd-responsive) solid hsla(var(--clr-brd), 1);
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
 }
 
+/* Cards Layout */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-content: center;
+    gap: var(--grid-gap-responsive);
+}
+
+.grid-wrapper-1 {
+    display: grid;
+    place-content: center;
+}
+
+.grid-wrapper-2 {
+    display: grid;
+    place-content: center;
+    grid-template-rows: 1fr 1fr;
+    gap: var(--grid-gap-responsive);
+}
+
+.grid-wrapper-3 {
+    display: grid;
+    place-content: center;
+}
 
 /* Product Styles */
 
 .product-heading {
     text-align: center;
     display: grid;
+    place-content: center;
     gap: var(--spacing-m);
     padding-bottom: var(--padding-bottom-responsive);
-    /* padding-top: 5.3125rem; */
 }
 
 .product-heading-title {
     font-weight: var(--fw-s);
     font-size: var(--fs-title-responsive);
-    color: hsla(var(--clrHsla-secondary-dark-blue), 1)
+    color: hsla(var(--clr-hsla-dark-blue), 1)
 }
 
 .product-heading-title>span {
@@ -154,14 +148,11 @@ body {
 
 .product-heading-p {
     font-size: var(--fs-m);
-    color: hsla(var(--clrHsla-secondary-dark-blue), .5)
+    color: hsla(var(--clr-hsla-dark-blue), .5);
+    max-width: 33.75rem;
 }
 
-.product-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--grid-gap-responsive);
-}
+
 
 .product-grid-cards {
     display: grid;
@@ -169,17 +160,21 @@ body {
     overflow: hidden;
     border-radius: var(--brd-radius);
     padding: var(--cards-padding-responsive);
-    box-shadow: 0px 15px 30px -11px hsla(var(--clrHsla-secondary-dark-blue), .5);
+    box-shadow: 0px 15px 30px -11px hsla(var(--clr-hsla-dark-blue), .5);
+    max-width: var(--card-width-responsive);
+    transition: ease-in 300ms;
+
 }
 
 .product-grid-cards-subtitle {
-    color: hsla(var(--clrHsla-secondary-dark-blue), 1);
+    color: hsla(var(--clr-hsla-dark-blue), 1);
     font-size: var(--fs-l);
     font-weight: var(--fw-l);
+    transition: ease-in 300ms;
 }
 
 .product-grid-cards-p {
-    color: hsla(var(--clrHsla-secondary-dark-blue), .5);
+    color: hsla(var(--clr-hsla-dark-blue), .5);
     font-size: var(--fs-s);
     padding-bottom: var(--card-gap-responsive);
 }
@@ -189,10 +184,25 @@ body {
     justify-content: end;
 }
 
+/* Hover */
+
+.product-grid-cards:is(:hover, :focus) {
+    background-color: hsla(var(--clr-brd), .25);
+    transform: scale(1.1);
+    box-shadow: 0px 20px 35px -8px hsla(var(--clr-hsla-dark-blue), .5);
+
+    & .product-grid-cards-subtitle {
+        color: hsla(var(--clr-brd), 1);
+        font-size: 2rem;
+        padding-bottom: 0.5rem;
+    }
+
+}
+
 
 /* Media Queries */
 
-@media (min-width: 550px) {
+@media (min-width: 50rem) {
     :root {
         --fs-title-responsive: 2.25rem;
         --card-brd-responsive: 0.25rem;
@@ -200,5 +210,23 @@ body {
         --grid-gap-responsive: 1.875rem;
         --cards-padding-responsive: 2rem;
         --card-gap-responsive: 2.5rem;
+        --card-width-responsive: 21.875rem;
+    }
+
+    .product {
+        max-width: var(--max-width-desktop);
+
+
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 50rem) and (max-width: 59.5rem) {
+    .product-grid-cards {
+        max-height: 15rem;
     }
 }
