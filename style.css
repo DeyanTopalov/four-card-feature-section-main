@@ -1,0 +1,116 @@
+:root {
+
+    /* Primary Colors */
+
+    --clr-primary-red: hsl(0, 78%, 62%);
+    --clr-primary-cyan: hsl(180, 62%, 55%);
+    --clr-primary-orange: hsl(34, 97%, 64%);
+    --clr-primary-blue: hsl(212, 86%, 64%);
+    --clr-pramiry-white: hsl(0, 0%, 100%);
+    --test: hsl(234, 12%, 34%);
+
+    /* Secondary Colors */
+    --clrHsla-secondary-dark-blue: 234, 12%, 34%;
+    /*card P*/
+    --clr-secondary-blue: hsl(229, 6%, 66%);
+    --clr-secondary-light-gray: hsl(0, 0%, 98%);
+
+    /* Typography */
+    --ff: 'Poppins', sans-serif;
+
+    --fw-s: 200;
+    --fw-m: 400;
+    --fw-l: 600;
+
+    --fs-s: 0.8125rem;
+    /* 13px */
+    --fs-m: 0.9375rem;
+    /* 15px */
+    --fs-l: 1.25rem;
+    /* 20px */
+
+    /* Others */
+    --brd-radius: 0.5rem;
+
+
+    --spacing-xxs: 0.25rem;
+    --spacing-xs: 0.5rem;
+    --spacing-s: 0.75rem;
+    --spacing-m: 1rem;
+    --spacing-l: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 2.25rem;
+    --spacing-xxxl: 2.5rem;
+
+    /* Responsive - based on Design */
+    --fs-title-responsive: 1.5rem;
+    --card-brd-responsive: 0.2188rem;
+    --padding-bottom-responsive: 4.75rem;
+    --grid-gap-responsive: 1.5625rem;
+    --cards-padding: 1.75rem;
+
+    /* Desktop - based on design */
+    /* Tiitle-light: fs 2.25rem 36px, fw 200 */
+    /* Tittle-heavy: fs 36px,  fw 600*/
+    /* card top border 0.25rem 4px */
+    /* subtitle to top card 4rem 64px */
+    /* grid-gap: 1.875rem 30px */
+    /* body padding left-right 10.3125rem 165px*/
+    /* card padding 2rem 32px */
+    /* max-width 69.375rem 1110px */
+
+    /* [-- OK --] Subtittle: fs 15px, fw 400 */
+    /* [-- OK --] card tittle: fs 1.25rem 20px, fw 600 */
+    /* [-- OK --] card p fs 0.8125 13px, fw 400 */
+    /* [-- OK --] card-brd-radius 0.5rem 8px */
+
+
+    /* Mobile */
+    /* Tiitle-light: fs 1.5rem 24px, fw 200 */
+    /* Tittle-heavy: fs 1.5rem 24px,  fw 600*/
+    /* card top border 0.2188rem 3.5px */
+    /* subtitle to top card 4.75rem 76px */
+    /* grid-gap: 1.5625rem 25px */
+    /* body padding left/right 32px*/
+    /* card padding 1.75rem 28px */
+
+    /* [-- OK --]  Subtittle: fs 15px, fw 400 */
+    /* [-- OK --]  card tittle: fs 1.25rem 20px, fw 600 */
+    /* [-- OK --]  card p fs 13px, fw 400 */
+    /* [-- OK --]  card-brd-radius 8px */
+
+}
+
+/* Global Styles */
+
+/* Utility Styles */
+.brd-red {
+    border-top: var(--card-brd-responsive) solid var(--clr-primary-red);
+}
+
+.brd-cyan {
+    border-top: var(--card-brd-responsive) solid var(--clr-primary-cyan);
+}
+
+.brd-orange {
+    border-top: var(--card-brd-responsive) solid var(--clr-primary-orange);
+}
+
+.brd-blue {
+    border-top: var(--card-brd-responsive) solid var(--clr-primary-blue);
+}
+
+/* Product Styles */
+
+
+/* Media Queries */
+
+@media (min-width: 550px) {
+    :root {
+        --ff-title-responsive: 2.25rem;
+        --card-brd-responsive: 0.25rem;
+        --padding-bottom-responsive: 4rem;
+        --grid-gap-responsive: 1.875rem;
+        --cards-padding: 2rem;
+    }
+}
