@@ -196,6 +196,7 @@ body {
         font-size: 2rem;
         padding-bottom: 0.5rem;
     } */
+    /* Issues with Safari support for nesting */
 
 }
 
@@ -225,7 +226,7 @@ body {
     }
 }
 
-@media (min-width: 50rem) and (max-width: 59.5rem) {
+@media (min-width: 50rem) and (max-width: 62.5rem) {
     .product-grid-cards {
         max-height: 15rem;
     }
