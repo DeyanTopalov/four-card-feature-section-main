@@ -170,7 +170,7 @@ body {
     color: hsla(var(--clr-hsla-dark-blue), 1);
     font-size: var(--fs-l);
     font-weight: var(--fw-l);
-    transition: ease-in 300ms;
+    transition: ease-in-out 300ms;
 }
 
 .product-grid-cards-p {
